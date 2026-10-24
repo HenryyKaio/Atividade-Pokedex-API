@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.conteinerCarta{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+
+.carta{
+    width: 300px;
+    max-width: 100%;
+    border: 5px solid red;
+    border-radius: 15px;
+}
+
+.carta img{
+    width: 200px;
+    height: 200px;
+    margin: 0 55px;
+}
+
+.campoStats ul{
+    list-style: none;
+}
+
+.carta .campoTipo #tipo{
+    font-size: 20px;
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 8px;
+}
