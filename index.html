@@ -1,24 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Icone.png" type="image/x-icon">
 </head>
+
 <body>
 
 
     <form action="" id="busca">
         <input type="text" id="nome">
-        <input type="submit" value="">
+        <input type="submit" value="Buscar" id="enviar">
     </form>
-    
-    
+
+    <div class="conteinerCarta">
+        <div class="carta">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png" alt="" id="card">
+            <div class="campoTipo">
+                <span id="tipo">Eletric</span>
+            </div>
+            <div class="campoFisico">
+                <div class="linha1">
+                    <span id="altura">0,4m</span>
+                    <span id="peso">6,0</span>
+                </div>
+                <div class="linha2">
+                    <span>Altura</span>
+                    <span>Peso</span>
+                </div>
+            </div>
+            <div class="campoStats">
+                <ul>
+                    <li><span id="hp">HP </span></li>
+                    <li><span id="ataque">Ataque </span></li>
+                    <li><span id="defesa">Defesa </span></li>
+                    <li><span id="velocidade">Velocidade </span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <script src="Pokedex.js"></script>
 
-    
+
 
 
 </body>
+
 </html>
