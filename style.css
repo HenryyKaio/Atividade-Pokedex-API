@@ -4,34 +4,222 @@
     box-sizing: border-box;
 }
 
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    background: linear-gradient(340deg, rgba(247, 247, 247, 1) 0%, rgba(232, 228, 218, 1) 23%, rgba(224, 195, 79, 1) 49%, rgba(230, 39, 39, 1) 100%);
+    color: #fff;
+    padding: 30px 16px;
+    display: flex;
+    gap: 300px;
+}
 
-.conteinerCarta{
+
+/* Display da pokedex e formulario */
+
+.pokedex {
+    position: relative;
+    width: 280px;
+}
+
+.pokedex img {
+    width: 100%;
+    display: block;
+}
+
+#busca {
+    position: absolute;
+    top: 62%;
+    left: 25%;
+    width: 37%;
+
+    margin: 0;
+}
+
+#nome {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    text-align: center;
+    color: black;
+    padding: 0 2px;
+
+}
+
+#nome::placeholder {
+    color: #0e5d17;
+    opacity: 1;
+    font-size: 10px;
+}
+
+#enviar {
+    position: absolute;
+    cursor: pointer;
+    left: 135%;
+    bottom: 75%;
+    background-color: #535b5d;
+    border: none;
+    color: #f7ebeb;
+}
+
+
+/* Área da carta */
+.conteinerCarta {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+/* Carta Pokémon */
+.carta {
+    width: 100%;
+    max-width: 320px;
+    padding: 16px;
+    background: linear-gradient(145deg, #9b0404, #f33333);
+    border: 5px solid #d8312e;
+    border-radius: 18px;
+    box-shadow:
+        0 8px 0 #8b1818,
+        0 14px 30px rgba(0, 0, 0, 0.4);
+    color: #222;
+    overflow: hidden;
 }
 
 
-.carta{
-    width: 300px;
-    max-width: 100%;
-    border: 5px solid red;
-    border-radius: 15px;
-}
-
-.carta img{
-    width: 200px;
-    height: 200px;
-    margin: 0 55px;
-}
-
-.campoStats ul{
-    list-style: none;
-}
-
-.carta .campoTipo #tipo{
+#nomePokemon {
+    display: block;
     font-size: 20px;
-    background-color: yellow;
-    padding: 5px;
-    border-radius: 8px;
+    font-weight: bold;
+    color: #222;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
 }
+
+
+/* Imagem do Pokémon */
+.carta img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+    background: rgba(255, 255, 255, 0.45);
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+}
+
+.percentConteiner {
+    width: 150px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.percent {
+    width: 0%;
+    background-color: red;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+
+/* Tipo do Pokémon */
+.campoTipo {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 14px;
+}
+
+.carta .campoTipo span {
+    display: inline-block;
+    max-width: 100%;
+    padding: 7px 18px;
+    border-radius: 20px;
+    background: #e74c3c;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+/* Altura e peso */
+.campoFisico {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.linha1,
+.linha2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1 / -1;
+}
+
+.linha1 {
+    gap: 8px;
+}
+
+.linha1 span {
+    min-width: 0;
+    padding: 10px 4px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.linha2 span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #59421b;
+}
+
+/* Atributos */
+.campoStats {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+.campoStats ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.campoStats li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.campoStats li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.campoStats li span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
