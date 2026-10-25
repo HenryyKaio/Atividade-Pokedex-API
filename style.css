@@ -116,20 +116,6 @@ body {
     border-radius: 12px;
 }
 
-.percentConteiner {
-    width: 150px;
-    height: 10px;
-    overflow: hidden;
-}
-
-.percent {
-    width: 0%;
-    background-color: red;
-    height: 100%;
-    border-radius: 10px;
-    transition: width 0.5s ease;
-}
-
 
 /* Tipo do Pokémon */
 .campoTipo {
@@ -221,5 +207,19 @@ body {
 .campoStats li span {
     min-width: 0;
     overflow-wrap: anywhere;
+}
+
+.percentConteiner {
+    width: 150px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.percent {
+    width: 0%;
+    background-color: red;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
 }
 
