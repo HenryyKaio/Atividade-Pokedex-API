@@ -47,7 +47,7 @@ async function buscarPokemon(event) {
         const dados = await resposta.json();
 
 
-        nome.innerText = dados.name;
+        nome.innerText = dados.name + "   #" + dados.id;
 
         imagem.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${dados.id}.png`;
 
