@@ -48,7 +48,7 @@ body {
 
 #busca {
     position: absolute;
-    top: 84%;
+    top: 78%;
     left: 26%;
     width: 37%;
     margin: 0;
@@ -110,6 +110,32 @@ body {
     box-shadow: none;
 }
 
+
+#aleatorio {
+  width: 100%;
+  padding: 10px;
+  color: #17415c;
+  background: linear-gradient(135deg, #bdeaff, #75d0f5);
+  border: 2px solid #4ba9d4;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #3987ad;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#aleatorio:hover {
+  background: linear-gradient(135deg, #d8f4ff, #91e0ff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #3987ad;
+}
+
+#aleatorio:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #3987ad;
+}
+
+
 #ant,
 #prox,
 #shiny {
@@ -130,13 +156,13 @@ body {
 
 #ant {
     left: 7%;
-    bottom: 5%;
+    bottom: 12%;
     background: linear-gradient(135deg, #454d5a, #252b35);
 }
 
 #prox {
     right: 7%;
-    bottom: 5%;
+    bottom: 12%;
     background: linear-gradient(135deg, #454d5a, #252b35);
 }
 
