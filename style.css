@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -7,20 +8,37 @@
 body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f7f7f7;
-    background: linear-gradient(340deg, rgba(247, 247, 247, 1) 0%, rgba(232, 228, 218, 1) 23%, rgba(224, 195, 79, 1) 49%, rgba(230, 39, 39, 1) 100%);
+    background-image: url(https://i.pinimg.com/originals/ac/0b/a0/ac0ba0a9bc7e7cd02e81ec71e193d344.png?nii=t);
+    background-attachment: fixed;
+    background-size: cover;
     color: #fff;
-    padding: 30px 16px;
+    padding: 40px 24px;
     display: flex;
-    gap: 300px;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
 }
-
-
-/* Display da pokedex e formulario */
 
 .pokedex {
     position: relative;
-    width: 280px;
+    width: 320px;
+    flex-shrink: 0;
+    padding: 10px;
+    background: linear-gradient(145deg, #e53935, #a91420);
+    border: 5px solid #242832;
+    border-right: 2px solid #242832;
+    border-radius: 24px 0 0 24px;
+    box-shadow:
+        -8px 8px 0 #11151d,
+        0 18px 35px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.pokedex:hover {
+    box-shadow:
+        -8px 8px 0 #11151d,
+        0 22px 42px rgba(0, 0, 0, 0.45);
 }
 
 .pokedex img {
@@ -30,29 +48,38 @@ body {
 
 #busca {
     position: absolute;
-    top: 62%;
-    left: 25%;
+    top: 84%;
+    left: 26%;
     width: 37%;
-
     margin: 0;
+}
+
+#enviar {
+    align-self: flex-start;
+    margin-left: -12px;
 }
 
 #nome {
     width: 100%;
-    height: 30px;
-    box-sizing: border-box;
-    background: transparent;
-    border: none;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(14, 93, 23, 0.3);
+    border-radius: 5px;
     outline: none;
     font-size: 12px;
     text-align: center;
-    color: black;
-    padding: 0 2px;
+    color: #14251a;
+    padding: 0 4px;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
 
+#nome:focus {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
 
 #nome::placeholder {
-    color: #0e5d17;
+    color: #174a20;
     opacity: 1;
     font-size: 10px;
 }
@@ -62,83 +89,190 @@ body {
     cursor: pointer;
     left: 135%;
     bottom: 75%;
-    background-color: #535b5d;
-    border: none;
-    color: #f7ebeb;
+    background: linear-gradient(145deg, #3e4652, #202630);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: bold;
+    box-shadow: 0 3px 0 #151922;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
+#enviar:hover {
+    background: #252c39;
+    transform: translateY(-2px);
+}
 
-/* Área da carta */
+#enviar:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+#ant,
+#prox,
+#shiny {
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 9px 10px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+#ant {
+    left: 7%;
+    bottom: 5%;
+    background: linear-gradient(135deg, #454d5a, #252b35);
+}
+
+#prox {
+    right: 7%;
+    bottom: 5%;
+    background: linear-gradient(135deg, #454d5a, #252b35);
+}
+
+#shiny {
+    left: 50%;
+    bottom: 15%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #f5c842, #e49b17);
+    color: #38250a;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+#ant:hover,
+#prox:hover,
+#shiny:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+#ant:hover,
+#prox:hover {
+    transform: translateY(-2px);
+}
+
+#shiny:hover {
+    transform: translate(-50%, -2px);
+}
+
+#ant:active,
+#prox:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+#shiny:active {
+    transform: translate(-50%, 2px);
+    box-shadow: none;
+}
+
 .conteinerCarta {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 40px;
+    align-items: stretch;
+    width: 320px;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 0;
+    flex-shrink: 1;
 }
 
-/* Carta Pokémon */
 .carta {
     width: 100%;
-    max-width: 320px;
-    padding: 16px;
-    background: linear-gradient(145deg, #9b0404, #f33333);
-    border: 5px solid #d8312e;
-    border-radius: 18px;
+    min-width: 0;
+    padding: 18px;
+    background: linear-gradient(145deg, #f9e6a1, #e7bd56);
+    border: 5px solid #242832;
+    border-left: 2px solid #242832;
+    border-radius: 0 24px 24px 0;
     box-shadow:
-        0 8px 0 #8b1818,
-        0 14px 30px rgba(0, 0, 0, 0.4);
-    color: #222;
+        8px 8px 0 #11151d,
+        0 18px 35px rgba(0, 0, 0, 0.35);
+    color: #242424;
     overflow: hidden;
+    transition: filter 0.3s ease;
 }
 
+.carta:hover {
+    filter: brightness(1.04);
+}
 
 #nomePokemon {
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
+    display: inline-block;
+    max-width: 78%;
+    vertical-align: middle;
+    font-size: 21px;
+    font-weight: 800;
+    color: #242424;
     text-transform: capitalize;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     overflow-wrap: anywhere;
 }
 
+#idPokemon {
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    color: #6c5424;
+    margin-top: 5px;
+}
 
-/* Imagem do Pokémon */
 .carta img {
     display: block;
     width: 100%;
     max-width: 220px;
     height: 200px;
     object-fit: contain;
-    margin: 0 auto 12px;
-    background: rgba(255, 255, 255, 0.45);
-    border: 3px solid rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
+    margin: 0 auto 14px;
+    background: linear-gradient(145deg, #fffdf5, #f3e7c4);
+    border: 3px solid rgba(255, 255, 255, 0.85);
+    border-radius: 14px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease;
 }
 
+.carta img:hover {
+    transform: scale(1.04);
+}
 
-/* Tipo do Pokémon */
 .campoTipo {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-bottom: 14px;
 }
 
 .carta .campoTipo span {
     display: inline-block;
     max-width: 100%;
-    padding: 7px 18px;
+    padding: 7px 16px;
     border-radius: 20px;
-    background: #e74c3c;
+    background: linear-gradient(135deg, #d83232, #a81424);
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     overflow-wrap: anywhere;
+    box-shadow: 0 3px 6px rgba(120, 20, 20, 0.2);
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-/* Altura e peso */
+.carta .campoTipo span:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+}
+
 .campoFisico {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -161,41 +295,48 @@ body {
 .linha1 span {
     min-width: 0;
     padding: 10px 4px;
-    background: rgba(255, 255, 255, 0.65);
-    border-radius: 8px;
-    font-size: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(125, 91, 24, 0.12);
+    border-radius: 9px;
+    font-size: 14px;
     font-weight: bold;
     overflow-wrap: anywhere;
+    transition: background 0.2s ease;
+}
+
+.linha1 span:hover {
+    background: #fffdf5;
 }
 
 .linha2 span {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
-    color: #59421b;
+    color: #70521c;
+    padding-top: 2px;
 }
 
-/* Atributos */
 .campoStats {
     padding: 12px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(125, 91, 24, 0.12);
+    border-radius: 12px;
 }
 
 .campoStats ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 10px;
 }
 
 .campoStats li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    padding-bottom: 7px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    font-size: 14px;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -210,16 +351,102 @@ body {
 }
 
 .percentConteiner {
-    width: 150px;
-    height: 10px;
+    width: 100px;
+    max-width: 45%;
+    height: 8px;
+    flex-shrink: 0;
     overflow: hidden;
+    background: #ded6c2;
+    border-radius: 10px;
 }
 
 .percent {
     width: 0%;
-    background-color: red;
+    background: linear-gradient(90deg, #ed9a25, #d62929);
     height: 100%;
     border-radius: 10px;
     transition: width 0.5s ease;
 }
+
+
+@media (max-width: 680px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        padding: 28px 16px;
+        gap: 0;
+    }
+
+    .pokedex {
+        width: min(320px, 100%);
+        border: 5px solid #242832;
+        border-bottom: 2px solid #242832;
+        border-radius: 24px 24px 0 0;
+        box-shadow:
+            -5px 0 0 #11151d,
+            5px 0 0 #11151d,
+            0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .conteinerCarta {
+        width: min(320px, 100%);
+    }
+
+    .carta {
+        border: 5px solid #242832;
+        border-top: 2px solid #242832;
+        border-radius: 0 0 24px 24px;
+        box-shadow:
+            -5px 0 0 #11151d,
+            5px 0 0 #11151d,
+            0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding: 18px 10px;
+    }
+
+    .pokedex {
+        width: min(290px, 100%);
+    }
+
+    .conteinerCarta {
+        width: min(290px, 100%);
+    }
+
+    .carta {
+        padding: 12px;
+    }
+
+    .carta img {
+        height: 170px;
+    }
+
+    #nomePokemon {
+        font-size: 18px; 
+    }
+
+    #ant,
+    #prox,
+    #shiny {
+        font-size: 10px;
+        padding: 8px 7px;
+    }
+
+    .campoStats {
+        padding: 9px;
+    }
+
+    .campoStats li {
+        font-size: 11px;
+    }
+
+    .percentConteiner {
+        max-width: 42%;
+    }
+}
+
+
 
