@@ -3,7 +3,7 @@ const nomeBusca = document.querySelector("#nome")
 const botao = document.querySelector("#enviar")
 const prox = document.querySelector("#prox")
 const anterior = document.querySelector("#ant")
-const botaoShiny = document.querySelector('#shiny')
+const random = document.querySelector('#aleatorio')
 
 const nome = document.querySelector('#nomePokemon')
 const id = document.querySelector('#idPokemon')
@@ -117,6 +117,12 @@ buscar.addEventListener("submit", (event) => {
     let pokemon = nomeBusca.value;
     colocarDados(event, pokemon)
 });
+
+random.addEventListener("click", async (event)=>{
+    let idAleatorio = Math.floor(Math.random() * 1025) + 1;;
+    dados = await buscarPokemon(idAleatorio);
+    colocarDados(event, idAleatorio);
+})
 
 prox.addEventListener("click", async (event) => {
     let pokemon = parseInt(id.textContent, 10); // Aqui eu defini a variável pokemon como o conteúdo que vai dentro do span id, ou seja, o id do pokemon que está la dentro. Porém, como o conteúdo lá vem como string, eu usei o parseInt para transformar em inteiro. Fiz isso pra que eu consiga pegar o id do pokemon atual, somar mais um ao id e então chamar a função coloca dados que irá colocar os dados do próximo pokemon. Pode não ser a melhor lógica, mas foi a que eu consegui pensar
