@@ -23,6 +23,9 @@ const percentual2 = document.querySelector('#percent2')
 const percentual3 = document.querySelector('#percent3')
 const percentual4 = document.querySelector('#percent4')
 
+const som = new Audio('https://www.soundjay.com/buttons_c2026/button-30.mp3')
+
+
 let clicouImagem = false;
 
 
@@ -110,7 +113,8 @@ async function colocarDados(event, pokemon) {
 
 botao.addEventListener("click", (event) => {
     let pokemon = nomeBusca.value;
-    colocarDados(event, pokemon) 
+    som.play();
+    colocarDados(event, pokemon)
 });
 
 buscar.addEventListener("submit", (event) => {
@@ -118,13 +122,15 @@ buscar.addEventListener("submit", (event) => {
     colocarDados(event, pokemon)
 });
 
-random.addEventListener("click", async (event)=>{
+random.addEventListener("click", async (event) => {
+    som.play();
     let idAleatorio = Math.floor(Math.random() * 1025) + 1;;
     dados = await buscarPokemon(idAleatorio);
     colocarDados(event, idAleatorio);
 })
 
 prox.addEventListener("click", async (event) => {
+    som.play();
     let pokemon = parseInt(id.textContent, 10); // Aqui eu defini a variável pokemon como o conteúdo que vai dentro do span id, ou seja, o id do pokemon que está la dentro. Porém, como o conteúdo lá vem como string, eu usei o parseInt para transformar em inteiro. Fiz isso pra que eu consiga pegar o id do pokemon atual, somar mais um ao id e então chamar a função coloca dados que irá colocar os dados do próximo pokemon. Pode não ser a melhor lógica, mas foi a que eu consegui pensar
     dados = await buscarPokemon(pokemon); // aqui busca os dados do pokemon
     if (Number.isNaN(pokemon)) { // aqui é uma verificação que eu fiz caso o usuário clique em próximo não tendo nenhum id na carta ainda, fazendo com que retorne NaN na variável pokemon. Assim, se for NaN, ele vai para o primeiro pokemon
@@ -136,16 +142,17 @@ prox.addEventListener("click", async (event) => {
 })
 
 anterior.addEventListener("click", async (event) => { // Faz o mesmo que o anterior, mas nesse caso ele diminui o id
+    som.play();
     let pokemon = parseInt(id.textContent, 10);
     dados = await buscarPokemon(pokemon);
     pokemon = dados.id - 1
     colocarDados(event, pokemon)
 })
 
-imagem.addEventListener("click", async ()=>{
+imagem.addEventListener("click", async () => {
     let pokemon = nome.textContent // aqui ele pega o nome do pokemon que está sendo exibido na hora, pra quando o usuário clicar, ele vai mostrar as costas do pokemon que está sendo mostrado
     dados = await buscarPokemon(pokemon)
-    if(clicouImagem == false){
+    if (clicouImagem == false) {
         imagem.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${dados.id}.png`;
         clicouImagem = true;
     } else {
